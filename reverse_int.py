@@ -1,3 +1,6 @@
+# Question: Reverse an integer n
+# Assumption: 32-bit integer
+# Idea: Calculate d, which is remainder of integer n to 10. 
 def reverse(n):
     x = 0
     if n < 0:
