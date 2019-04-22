@@ -108,9 +108,19 @@
             }
         </script>
 
+        <script>
+         function lastModified() {
+             var x = new Date(document.lastModified);
+             document.getElementById("date").innerHTML = "Last modified: " + x;
+             return x;
+         }
+
+        </script>
+
+
     </head>
 
-    <body data-spy="scroll" data-target=".navbar" data-offset="65">
+    <body data-spy="scroll" data-target=".navbar" data-offset="65" onload=lastModified();>
         <div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -232,7 +242,7 @@
                     1908 S. 1st Street<br  />
                     Champaign, IL 61820, USA <br  />
                     Google Voice: (650) 285-1143 <br  />
-                    E-mail: <a href="mailto:linhcao2@illinois.edu">linhcaoX@illinois.edu (where X is 2)</a><br  />
+                    E-mail: <a href="mailto:linh.cao@verizonmedia.com">linh.cao@X.com(where X is verizonmedia)</a><br  />
                     <a href="https://github.com/emlcao">https://github.com/emlcao</a>
                 </p>
             </div>
@@ -242,22 +252,23 @@
                 <h2 id="contact">Affiliations</h2>
 
                 <p>
-                    <img height=100 src="img/ncsalogo_sm.gif"/>
                     <img height=100 src="img/ischool_wordmark.png"/>
                     <img height=200 src="img/ilc.png"/>
                     <img height=100 src="img/uiuc_logo.jpg"/>
                     <img height=100 src="https://c1.staticflickr.com/1/221/492124064_d02398b7e2_m.jpg"/>
+                    <img height=100 src="img/ncsalogo_sm.gif"/>
                 </p>
             </div>
 
             <hr>
             <footer>
-                <p class="text-muted">Last modified: March 2019 · Bootswatch template</p>
+                <p class="text-muted" id="date" >Last modified:  · Bootswatch template</p>
             </footer>
 
         </div>
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
+
 
     </body>
 </html>
