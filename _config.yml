@@ -1,13 +1,4 @@
-title: My Website 
-description: >- # this means to ignore newlines until "baseurl"
-  Research and posts by Linh Cao.
-url: https://emlcao.github.io 
-author:
-  name: Linh Cao
-  url: https://github.com/emlcao
-
-# Build settings
-theme: minima
-remote_theme: jekyll/minima
-sass:
-  style: compressed
+title: My Site
+# Remove theme and remote_theme lines entirely
+markdown: kramdown
+exclude: [Makefile, README.md]
