@@ -1,0 +1,9 @@
+title: My Website 
+description: >- # this means to ignore newlines until "baseurl"
+  Research and posts by Linh Cao.
+baseurl: "" # the subpath of your site, e.g. /project
+url: "" # the base hostname & protocol for your site
+
+# Build settings
+theme: minima
+remote_theme: jekyll/minima
