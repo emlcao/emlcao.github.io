@@ -1,37 +1,134 @@
 ---
 layout: default
-title: Blog Posts
 ---
 
-<div class="posts-container">
-    <h1>Blog Posts</h1>
+<div class="blog-layout">
+  <main>
+    <div class="posts-container">
+      <div style="margin-bottom: 2rem;">
+        <h1 class="page-title" style="font-size: 2.25rem; margin: 0 0 0.5rem 0;">All Posts</h1>
+        <p class="page-subtitle" style="margin: 0; font-size: 1.05rem;">Exploring software engineering, distributed systems, and technical notes.</p>
+      </div>
 
-    <section class="post-list">
+      <!-- Active Filter Banner (Visible when a category filter is active) -->
+      <div id="filter-banner" class="filter-banner" style="display: none;">
+        <span>Showing posts in <strong id="filter-tag-name"></strong></span>
+        <button id="clear-filter-btn" class="clear-filter-btn" type="button" aria-label="Clear filter">
+          &times; View all
+        </button>
+      </div>
+
+      <div class="post-list" id="post-list">
         {% for post in site.posts %}
-        <article class="post-preview">
-            <h2>
-                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </h2>
+          <article class="post-card post-card-horizontal" data-categories="{{ post.categories | join: ',' | downcase }}">
             
-            <div class="post-meta">
-                <time datetime="{{ post.date | date_to_xmlschema }}">
-                    {{ post.date | date: "%B %d, %Y" }}
-                </time>
-                {% if post.categories.size > 0 %}
-                <span class="categories"> • {{ post.categories | join: ", " }}</span>
-                {% endif %}
-            </div>
-
-            {% if post.excerpt %}
-            <p class="post-excerpt">
-                {{ post.excerpt | strip_html | truncatewords: 30 }}
-            </p>
+            {% if post.image %}
+              <div class="post-card-thumb">
+                <a href="{{ post.url | relative_url }}">
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                </a>
+              </div>
             {% endif %}
 
-            <a href="{{ post.url | relative_url }}" class="read-more">Read More &rarr;</a>
-        </article>
-        {% else %}
-        <p>No posts found yet!</p>
+            <div class="post-content-area">
+              <header class="post-header">
+                <div class="post-meta">
+                  <span class="meta-item">
+                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                      {{ post.date | date: "%B %d, %Y" }}
+                    </time>
+                  </span>
+                  
+                  <span class="meta-dot">&bull;</span>
+                  
+                  <span class="meta-item">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    {% assign words = post.content | strip_html | number_of_words %}
+                    {% if words < 360 %}
+                      1 min read
+                    {% else %}
+                      {{ words | divided_by: 180 }} min read
+                    {% endif %}
+                  </span>
+                  
+                  {% if post.categories and post.categories.size > 0 %}
+                    <span class="meta-dot">&bull;</span>
+                    <span class="post-tags-inline">
+                      {% for cat in post.categories %}
+                        <a href="?category={{ cat | url_encode }}" class="tag-pill" data-category="{{ cat | downcase }}">{{ cat }}</a>
+                      {% endfor %}
+                    </span>
+                  {% endif %}
+                </div>
+
+                <h2 class="post-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
+              </header>
+
+              <div class="post-body">
+                {{ post.excerpt }}
+              </div>
+
+              <div class="post-navigation">
+                <a href="{{ post.url | relative_url }}" class="back-link">Read More &rarr;</a>
+              </div>
+            </div>
+
+          </article>
+          {% unless forloop.last %}
+            <div class="post-divider"></div>
+          {% endunless %}
         {% endfor %}
-    </section>
+      </div>
+
+      <div id="no-posts-message" class="no-posts-msg" style="display: none;">
+        <p>No posts found in this category.</p>
+        <button class="clear-filter-btn" onclick="filterPosts('all')" type="button">Reset Filter</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="sidebar">
+      <!-- <div class="widget author-widget">
+           <div class="author-avatar">
+           <img src="{{ '/assets/img/lcao.jpg' | relative_url }}" alt="Author Avatar">
+           </div>
+           <h3>Linh Cao</h3>
+           <p>A collection of thoughts on life and technology, captured through words and photos.</p>
+           </div> -->
+
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <ul class="sidebar-categories" id="sidebar-category-list">
+        <li>
+          <a href="#" class="category-link active" data-category="all">
+            All Posts
+          </a>
+          <span class="cat-count">({{ site.posts | size }})</span>
+        </li>
+        {% for category in site.categories %}
+          <li>
+            <a href="?category={{ category[0] | url_encode }}" class="category-link" data-category="{{ category[0] | downcase }}">
+              {{ category[0] }}
+            </a>
+            <span class="cat-count">({{ category[1] | size }})</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="widget">
+      <h3 class="widget-title">Recent Posts</h3>
+      <ul class="sidebar-posts">
+        {% for p in site.posts limit: 5 %}
+          <li>
+            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            <span class="sidebar-date">{{ p.date | date: "%b %d, %Y" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
 </div>
