@@ -1,215 +1,70 @@
 ---
+layout: default
+title: Linh Cao · Aviatrix
+description: Linh Cao is a Senior Member of Technical Staff at Aviatrix. She holds a Master's degree in Library and Information Science from the University of Illinois at Urbana-Champaign (UIUC).
+external_scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js
+scripts:
+  - home.js
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="main-card">
+    <div class="jumbotron">
+        <img src="{{ '/assets/img/lcao.jpg' | relative_url }}" class="img-responsive photo pull-right" alt="Linh Cao" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px;">
+        <h2>Linh Cao</h2>
+        <address id="contact">
+            Senior Member of Technical Staff <br>
+            Aviatrix <br>
+            <a href="https://linkedin.com/in/emlcao"> LinkedIn <span class="fa fa-linkedin-square"></span></a> ·
+            <a href="https://github.com/emlcao"> Github <span class="fa fa-github-square"></span></a> ·
+            <a href="https://twitter.com/emlcao"> Twitter <span class="fa fa-twitter"></span></a> ·
+            <a href="mailto:linhctd8@gmail.com"> Email <span class="fa fa-envelope-o"></span> </a> ·
+            <a href="{{ '/files/cao-resume.pdf' | relative_url }}"> Resume <span class="fa fa-file-pdf-o"></span></a> ·
+            <a href="{{ '/files/cao-cv.pdf' | relative_url }}"> CV <span class="fa fa-file-pdf-o"></span></a>
+        </address>
+        <div class="clearfix"></div>
+    </div>
 
-        <title>Linh Cao · Aviatrix </title>
-        <meta name="author" content="Linh Cao" />
-        <meta name="contact" content="https://emlcao.github.io" />
-        <meta name="description" content="Linh Cao is a Senior Member of Technical staff at Aviatrix. She got a Master's degree in Information Sciences (LIS) at the University of Illinois at Urbana-Champaign (UIUC).">
-        <meta name="keywords" content="Linh Cao, Linh Cao UIUC, Linh Cao University of Illinois at Urbana-Champaign, Linh Cao Aviatrix">
+    <p>
+        I am Linh Cao, a Senior Member of Technical Staff at Aviatrix. Prior to Aviatrix, I spent 5 years with Yahoo working on advertising data pipelines. I hold a Master's degree in Library and Information Science from the University of Illinois (UIUC), with a research background in building distributed honeypot networks connecting national labs and universities.
+    </p>
 
-        <!-- robots -->
-        <meta name="robots" content="noarchive,nofollow" />
-
-        <!-- http control -->
-        <meta http-equiv="cache-control" content="no-cache" />
-
-        <!-- Early Theme Initialization to Prevent FOUC -->
-        <script>
-            (function() {
-                try {
-                    var stored = localStorage.getItem('theme-preference');
-                    var isDark = stored ? (stored === 'dark') : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-                } catch (e) {}
-            })();
-        </script>
-
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- Lato font -->
-        <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <!-- Font awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-        <!-- Site Stylesheet -->
-        <link rel="stylesheet" href="assets/css/style.css">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.4/gist-embed.min.js"></script>
-        
-        <script type='text/javascript'>
-         $(window).load(function(){
-             function scroll_if_anchor(href) {
-                 href = typeof(href) == "string" ? href : $(this).attr("href");
-                 var fromTop = 60;
-                 if(href.indexOf("#") == 0) {
-                     var $target = $(href);
-                     if($target.length) {
-                         $('html, body').animate({ scrollTop: $target.offset().top - fromTop });
-                         if(history && "pushState" in history) {
-                             history.pushState({}, document.title, window.location.pathname + href);
-                             return false;
-                         }
-                     }
-                 }
-             }
-             scroll_if_anchor(window.location.hash);
-             $("body").on("click", "a", scroll_if_anchor);
-         });
-        </script>
-
-        <!-- Microsoft Clarity to track unique visit  -->
-        <script type="text/javascript">
-         (function(c,l,a,r,i,t,y){
-             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-         })(window, document, "clarity", "script", "z2r9e98z54");
-        </script>
-    </head>
-
-    <body data-spy="scroll" data-target=".navbar" data-offset="65">
-        <div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container" style="max-width: 1000px; margin-top: 0; box-shadow: none; border: none; background: transparent; padding-left: 15px; padding-right: 15px;">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <button class="theme-toggle-btn visible-xs pull-right" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-                        <i class="fa fa-moon-o theme-toggle-icon" aria-hidden="true"></i>
-                    </button>
-                    <a class="navbar-brand" href="#">Linh Cao</a>
+    <div style="margin-top: 2.5rem;">
+        <h2 id="research">Research</h2>
+        <p>I have participated in the following research projects.</p>
+        <ul class="media-list">
+            <li class="media">
+                <a class="media-left" href="{{ '/files/sdaia.pdf' | relative_url }}">
+                    <img src="{{ '/assets/img/sdaia.png' | relative_url }}" class="softwareimg" alt="SDAIA" style="max-width: 180px;">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="{{ '/files/sdaia.pdf' | relative_url }}">Distributed Honeypot and Security Intelligence Sharing</a></h4>
+                    The SDAIA project addresses a critical need for security solutions for open science networks...
+                    <p class="text-right">
+                        <a href="{{ '/files/sdaia.pdf' | relative_url }}">Poster at iSchool Research Showcase</a>
+                    </p>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#research">Research</a></li>
-                        <li><a href="#teaching">Teaching</a></li>
-                        <li><a href="#code">Code samples</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="posts.html">Posts</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right hidden-xs">
-                        <li>
-                            <button class="theme-toggle-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-                                <i class="fa fa-moon-o theme-toggle-icon" aria-hidden="true"></i>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+            </li>
+        </ul>
+    </div>
 
-        <div class="container main-card">
-            <div class="jumbotron">
-                <img src="assets/img/lcao.jpg" class="img-responsive photo pull-right" alt="Linh Cao" style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px;">
-                <h2>Linh Cao</h2>
-                <address id="contact">
-                    Senior Member of Technical Staff <br>
-                    Aviatrix <br>
-                    <a href="https://linkedin.com/in/emlcao"> LinkedIn <span class="fa fa-linkedin-square"></span></a> ·
-                    <a href="https://github.com/emlcao"> Github <span class="fa fa-github-square"></span></a> ·
-                    <a href="https://twitter.com/emlcao"> Twitter <span class="fa fa-twitter"></span></a> ·
-                    <a href="mailto:linhctd8@gmail.com"> Email <span class="fa fa-envelope-o"></span> </a> ·
-                    <a href="files/cao-resume.pdf"> Resume <span class="fa fa-file-pdf-o"></span></a>
-                    <a href="files/cao-cv.pdf"> CV <span class="fa fa-file-pdf-o"></span></a>
-                </address>
-                <div class="clearfix"></div>
-            </div>
-            
-            <p>
-                I am Linh Cao, a Senior Member of Technical Staff at Aviatrix. Prior to Aviatrix, I spent 5 years with Yahoo working on advertising data pipelines. I hold a Master's degree in Library and Information Science from the University of Illinois (UIUC), with a research background in building distributed honeypot networks connecting national labs and universities.
-            </p>
+    <div style="margin-top: 2.5rem;">
+        <h2 id="teaching">Teaching</h2>
+        <p>Teaching Assistant for Instructional and Technology Design Office, School of Information Sciences, UIUC</p>
+    </div>
 
-            <div style="margin-top: 2.5rem;">
-                <h2 id="research">Research</h2>
-                <p>I have participated in the following research projects.</p>
-                <ul class="media-list">
-                    <li class="media">
-                        <a class="media-left" href="files/sdaia.pdf">
-                            <img src="assets/img/sdaia.png" class="softwareimg" alt="SDAIA" style="max-width: 180px;">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading"><a href="files/sdaia.pdf">Distributed Honeypot and Security Intelligence Sharing</a></h4>
-                            The SDAIA project addresses a critical need for security solutions for open science networks...
-                            <p class="text-right">
-                                <a href="files/sdaia.pdf">Poster at iSchool Research Showcase</a>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+    <div style="margin-top: 2.5rem;">
+        <h2 id="code">Code Samples</h2>
+        <p>A state machine implementation of TCP transport layer in Python.</p>
+        <p><code data-gist-id="793c9a28b8167331a91168a7ec6f394e" data-gist-line="166-173"></code></p>
+        <p>A HTTP proxy that supports caching and partial content streaming.</p>
+        <p><code data-gist-id="a0bac224d16fb752bf4409ad6a2d6954" data-gist-line="286-291"></code></p>
+        <p>A Python client that links Kafka and ZeroMQ.</p>
+        <p><code data-gist-id="257308234e1821d9b7a77e4ff70948cb" data-gist-line="18-27"></code></p>
+    </div>
 
-            <div style="margin-top: 2.5rem;">
-                <h2 id="teaching">Teaching</h2>
-                <p>Teaching Assistant for Instructional and Technology Design Office, School of Information Sciences, UIUC</p>
-            </div>
-
-            <div style="margin-top: 2.5rem;">
-                <h2 id="code">Code Samples</h2>
-                <p>
-                    A state machine implementation of TCP transport layer in Python.
-                </p>
-                <p>
-                    <code data-gist-id="793c9a28b8167331a91168a7ec6f394e" data-gist-line="166-173"></code>
-                </p>
-                <p>
-                    A HTTP proxy that supports caching and partial content streaming.
-                </p>
-                <p>
-                    <code data-gist-id="a0bac224d16fb752bf4409ad6a2d6954" data-gist-line="286-291"></code>
-                </p>
-                <p>
-                    A Python client that links Kafka and ZeroMQ.
-                </p>
-                <p>
-                    <code data-gist-id="257308234e1821d9b7a77e4ff70948cb" data-gist-line="18-27"></code>
-                </p>
-            </div>
-            <!-- Affiliations (Hidden for now)
-            <div style="margin-top: 2.5rem;">
-                <h2>Affiliations</h2>
-                <div class="affiliations-list">
-                    <div class="affiliation-item">
-                        <img src="assets/img/ischool_wordmark.png" alt="School of Information Sciences"/>
-                    </div>
-                    <div class="affiliation-item">
-                        <img src="assets/img/ilc.png" alt="Illinois Leadership Center"/>
-                    </div>
-                    <div class="affiliation-item">
-                        <img src="assets/img/uiuc_logo.jpg" alt="University of Illinois at Urbana-Champaign"/>
-                    </div>
-                    <div class="affiliation-item">
-                        <img src="https://c1.staticflickr.com/1/221/492124064_d02398b7e2_m.jpg" alt="Foreign Trade University"/>
-                    </div>
-                    <div class="affiliation-item">
-                        <img src="assets/img/ncsalogo_sm.gif" alt="NCSA"/>
-                    </div>
-                </div>
-            </div>
-            -->
-
-            <hr style="margin-top: 3rem;">
-            <footer>
-                <p class="text-muted" id="date">Last modified: {{ site.time | date: "%B %d, %Y" }} · Bootswatch template</p>
-            </footer>
-        </div>
-
-        <!-- Theme Switcher JS -->
-        <script src="assets/js/theme.js"></script>
-    </body>
-</html>
+    <hr style="margin-top: 3rem;">
+    <footer>
+        <p class="text-muted" id="date">Last updated: {{ site.time | date: "%B %d, %Y" }} · Bootswatch template</p>
+    </footer>
+</div>

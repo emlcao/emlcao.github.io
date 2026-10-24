@@ -1,90 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ page.title | default: "Linh Cao · Aviatrix" }}</title>
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="author" content="Linh Cao">
+    <meta name="description" content="{{ page.description | default: site.description }}">
 
-        <!-- Early Theme Initialization to Prevent FOUC -->
-        <script>
-            (function() {
-                try {
-                    var stored = localStorage.getItem('theme-preference');
-                    var isDark = stored ? (stored === 'dark') : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-                } catch (e) {}
-            })();
-        </script>
-        
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        
-        <!-- Custom Styles -->
-        <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    </head>
+    <!-- Early theme init to prevent flash of wrong theme -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme-preference');
+                var isDark = stored ? (stored === 'dark')
+                    : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            } catch (e) {}
+        })();
+    </script>
 
-    <body>
-        <!-- Global Top Navigation Bar -->
-        <div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container" style="max-width: 1000px; margin-top: 0; box-shadow: none; border: none; background: transparent; padding-left: 15px; padding-right: 15px;">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <button class="theme-toggle-btn visible-xs pull-right" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-                        <i class="fa fa-moon-o theme-toggle-icon" aria-hidden="true"></i>
-                    </button>
-                    <a class="navbar-brand" href="{{ '/' | relative_url }}">Linh Cao</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ '/' | relative_url }}#research">Research</a></li>
-                        <li><a href="{{ '/' | relative_url }}#teaching">Teaching</a></li>
-                        <li><a href="{{ '/' | relative_url }}#code">Code samples</a></li>
-                        <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
-                        <li><a href="{{ '/posts.html' | relative_url }}">Posts</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right hidden-xs">
-                        <li>
-                            <button class="theme-toggle-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-                                <i class="fa fa-moon-o theme-toggle-icon" aria-hidden="true"></i>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="65">
+    <div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#nav-menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button class="theme-toggle-btn visible-xs pull-right" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+                    <i class="fa fa-moon-o theme-toggle-icon" aria-hidden="true"></i>
+                </button>
+                <a class="navbar-brand" href="{{ '/' | relative_url }}">Linh Cao</a>
+            </div>
+            <div class="navbar-collapse collapse" id="nav-menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ '/' | relative_url }}#research">Research</a></li>
+                    <li><a href="{{ '/' | relative_url }}#teaching">Teaching</a></li>
+                    <li><a href="{{ '/' | relative_url }}#code">Code samples</a></li>
+                    <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+                    <li><a href="{{ '/posts.html' | relative_url }}">Posts</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right hidden-xs">
+                    <li>
+                        <button class="theme-toggle-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+                            <i class="fa fa-moon-o theme-toggle-icon" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
 
-        <!-- Page Content -->
-        <div class="container" style="margin-top: 80px;">
-            {{ content }}
-        </div>
+    <div class="container page-content">
+        {{ content }}
+    </div>
 
-        <!-- jQuery and Bootstrap JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <!-- Theme Switcher JS -->
-        <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
-
-        <script>
-         // Mobile Navigation Hamburger Menu Toggle
-         const mobileMenuToggle = document.querySelector('.navbar-toggle, .menu-icon, #menu-toggle'); // Adjust selector to match your button class/id
-         const navLinks = document.querySelector('.navbar-collapse, .trigger, .nav-links'); // Adjust selector to match your links container
-
-         if (mobileMenuToggle && navLinks) {
-             mobileMenuToggle.addEventListener('click', function () {
-                 navLinks.classList.toggle('is-open');
-                 // If using Bootstrap style collapse, you can also toggle 'collapse' or 'show' classes:
-                 navLinks.classList.toggle('collapse');
-             });
-         }
-        </script>
-    </body>
+    <!-- jQuery MUST come before Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    {% for url in page.external_scripts %}<script src="{{ url }}"></script>
+    {% endfor %}
+    <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+    {% for s in page.scripts %}<script src="{{ '/assets/js/' | append: s | relative_url }}"></script>
+    {% endfor %}
+</body>
 </html>
