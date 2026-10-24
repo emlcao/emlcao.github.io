@@ -2,6 +2,7 @@
 ---
 
 :root {
+  --container-width: 1100px; /* page content width on large screens */
   --navbar-offset: 74px; /* 50px fixed navbar + breathing room; every page clears the navbar via body padding */
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
@@ -65,7 +66,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: clamp(14px, 12.9px + 0.34vw, 16px); /* scales with screen width; all rem sizes follow */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-padding-top: var(--navbar-offset); /* anchor links land below the fixed navbar */
@@ -170,16 +171,16 @@ pre {
 
 /* Global Container & Card Alignment */
 .container {
-  max-width: 1000px;
+  width: 100%;
+  max-width: var(--container-width);
 }
 
 #navbar .container {
-  max-width: 1000px;
+  max-width: var(--container-width);
 }
 
 /* Home Page Main Card */
 .main-card {
-  max-width: 1000px;
   background: var(--bg-card);
   padding: 2.75rem;
   border-radius: 12px;
@@ -860,7 +861,8 @@ pre {
 
 /* Media list in dark mode and modern sizing */
 .media-heading {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-top: 0;
   margin-bottom: 0.5rem;
   a {
@@ -911,6 +913,15 @@ pre {
   height: auto;
 }
 
+/* Poster link sits under the research image */
+.media-left .media-link {
+  display: block;
+  max-width: 180px;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 @media (max-width: 767px) {
   .profile-photo {
     float: none;
@@ -929,6 +940,56 @@ pre {
   .media-left .softwareimg {
     display: block;
     max-width: 100%;
-    margin: 0 auto 1rem;
+    margin: 0 auto 0.5rem;
+  }
+
+  .media-left .media-link {
+    max-width: none;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Phones: tighter padding and slightly smaller type so text uses the full width */
+@media (max-width: 767px) {
+  body {
+    line-height: 1.6;
+  }
+
+  p {
+    line-height: 1.65;
+  }
+
+  address {
+    line-height: 1.75;
+  }
+
+  .main-card {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .jumbotron h2 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .media-body {
+    line-height: 1.6;
+  }
+
+  /* Blog pages */
+  .post-title {
+    font-size: 1.8rem;
+  }
+
+  .post-body {
+    line-height: 1.7;
   }
 }
