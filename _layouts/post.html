@@ -1,0 +1,94 @@
+---
+layout: default
+---
+
+<div class="blog-layout single-post">
+  <main>
+    <article class="post-card">
+      
+      {% if page.image %}
+        <div class="post-header-image">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+        </div>
+      {% endif %}
+
+      <div class="post-content-area">
+        <header class="post-header">
+          <h1 class="post-title">{{ page.title }}</h1>
+          <div class="post-meta">
+            <span class="meta-item">
+              <i class="fa fa-calendar-o" aria-hidden="true"></i>
+              <time datetime="{{ page.date | date_to_xmlschema }}">
+                {{ page.date | date: "%B %d, %Y" }}
+              </time>
+            </span>
+
+            <span class="meta-dot">&bull;</span>
+
+            <span class="meta-item">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              {% assign words = content | strip_html | number_of_words %}
+              {% if words < 360 %}
+                1 min read
+              {% else %}
+                {{ words | divided_by: 180 }} min read
+              {% endif %}
+            </span>
+
+            {% if page.categories and page.categories.size > 0 %}
+              <span class="meta-dot">&bull;</span>
+              <span class="post-tags-inline">
+                {% for cat in page.categories %}
+                  <a href="{{ '/posts.html' | relative_url }}?category={{ cat | url_encode }}" class="tag-pill">{{ cat }}</a>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+        </header>
+
+        <div class="post-body">
+          {{ content }}
+        </div>
+
+        <div class="post-navigation">
+          <a href="{{ '/posts.html' | relative_url }}" class="back-link">&larr; Back to All Posts</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <aside class="sidebar">
+      <!-- <div class="widget author-widget">
+           <div class="author-avatar">
+           <img src="{{ '/assets/img/lcao.jpg' | relative_url }}" alt="Author Avatar">
+           </div>
+           <h3>Linh Cao</h3>
+           <p>Software engineer and writer sharing notes on technology, coding, and development.</p>
+           </div>
+      -->
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <ul class="sidebar-categories">
+        {% for category in site.categories %}
+          <li>
+            <a href="{{ '/posts.html' | relative_url }}?category={{ category[0] | url_encode }}">{{ category[0] }}</a>
+            <span class="cat-count">({{ category[1] | size }})</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="widget">
+      <h3 class="widget-title">Recent Posts</h3>
+      <ul class="sidebar-posts">
+        {% for p in site.posts limit: 5 %}
+          <li>
+            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            <span class="sidebar-date">{{ p.date | date: "%b %d, %Y" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+</div>
