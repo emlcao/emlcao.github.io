@@ -72,5 +72,19 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <!-- Theme Switcher JS -->
         <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+
+        <script>
+         // Mobile Navigation Hamburger Menu Toggle
+         const mobileMenuToggle = document.querySelector('.navbar-toggle, .menu-icon, #menu-toggle'); // Adjust selector to match your button class/id
+         const navLinks = document.querySelector('.navbar-collapse, .trigger, .nav-links'); // Adjust selector to match your links container
+
+         if (mobileMenuToggle && navLinks) {
+             mobileMenuToggle.addEventListener('click', function () {
+                 navLinks.classList.toggle('is-open');
+                 // If using Bootstrap style collapse, you can also toggle 'collapse' or 'show' classes:
+                 navLinks.classList.toggle('collapse');
+             });
+         }
+        </script>
     </body>
 </html>
